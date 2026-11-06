@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaç kişi senden yaşlı?</title>
+<meta name="description" content="Doğum yılını gir: Türkiye'de kaç kişi senden yaşlı, kaç kişi genç? 1935'ten 2025'e TÜİK nüfus piramidinde senin kuşağın.">
+<meta property="og:title" content="Kaç kişi senden yaşlı?">
+<meta property="og:description" content="Türkiye nüfus piramidi 1935–2025 ve senin kuşağın. TÜİK.">
+<meta property="og:image" content="https://birtohum.github.io/kac-kisi-senden-yasli/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stil.css?v=1">
+<style>
+  :root { --vurgu: #b45309; --erkek: #64748b; --kadin: #94a3b8; --sen: #b45309; }
+  @media (prefers-color-scheme: dark) { :root { --vurgu: #fbbf24; --erkek: #64748b; --kadin: #94a3b8; --sen: #fbbf24; } }
+  .form { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+  .form label { display: flex; flex-direction: column; gap: 5px; font-size: 13px; color: var(--soluk); font-weight: 500; }
+  .form input { font: inherit; font-size: 18px; height: 48px; width: 160px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--cizgi); background: var(--kart); color: var(--yazi); }
+  .form button, .oynat { font: inherit; font-weight: 600; height: 48px; padding: 0 22px; border-radius: 10px; border: 0; background: var(--yazi); color: var(--zemin); cursor: pointer; }
+  .buyuk { font-size: clamp(56px, 11vw, 110px); font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin: 0; font-variant-numeric: tabular-nums; }
+  .buyuk small { font-size: .3em; letter-spacing: 0; font-weight: 600; color: var(--soluk); margin-left: 6px; }
+  .piramit-kutu { margin-top: 34px; }
+  .kontrol { display: flex; gap: 14px; align-items: center; margin-bottom: 8px; }
+  .kontrol input[type=range] { flex: 1; accent-color: var(--vurgu); }
+  .kontrol .yil { font-size: 34px; font-weight: 800; letter-spacing: -0.03em; min-width: 92px; font-variant-numeric: tabular-nums; }
+  .oynat { height: 40px; padding: 0 16px; }
+  #piramit { width: 100%; height: auto; display: block; }
+  #piramit text { font-family: inherit; font-size: 11px; fill: var(--soluk); }
+  #piramit .sen-yazi { fill: var(--sen); font-weight: 700; font-size: 12px; }
+  .ortanca { margin-top: 40px; }
+  #ortanca svg { width: 100%; height: auto; display: block; }
+  #ortanca text { font-family: inherit; font-size: 11px; fill: var(--soluk); }
+</style>
+</head>
+<body>
+<main>
+  <header class="ust">
+    <p class="ust-etiket">TÜİK · 1935–2025 nüfus piramidi</p>
+    <h1>Kaç kişi<br>senden yaşlı?</h1>
+    <form id="form" class="form" autocomplete="off">
+      <label><span>Doğum yılın</span><input id="yil" type="number" min="1930" max="2025" inputmode="numeric" required></label>
+      <button type="submit">Göster</button>
+    </form>
+  </header>
+
+  <section class="ozet" id="ozet" aria-live="polite"></section>
+
+  <section class="piramit-kutu">
+    <h2>Senin kuşağın piramitte</h2>
+    <p class="alt" id="pAlt">Sol erkek, sağ kadın; her çubuk 5 yaşlık bir grup, nüfusun yüzdesi olarak. Turuncu: senin yaş grubun.</p>
+    <div class="kontrol">
+      <button class="oynat" id="oynat" type="button">Oynat</button>
+      <span class="yil" id="pYil">2025</span>
+      <input type="range" id="kaydir" min="0" max="0" step="1" aria-label="Yıl">
+    </div>
+    <svg id="piramit" role="img" aria-label="Nüfus piramidi"></svg>
+  </section>
+
+  <section class="ortanca">
+    <h2>Türkiye yaşlanıyor</h2>
+    <p class="alt" id="oAlt"></p>
+    <div id="ortanca"></div>
+  </section>
+
+  <footer class="dip">
+    <p><b>Veri:</b> TÜİK, yaş grubu ve cinsiyete göre nüfus (<a href="https://nip.tuik.gov.tr/?value=YasGrubunaGoreNufus">Nüfus İstatistikleri Portalı</a>): 1935–2000 genel nüfus sayımları, 2007'den bu yana Adrese Dayalı Nüfus Kayıt Sistemi. 2000 ile 2007 arasında veri yok.</p>
+    <p><b>Hesap:</b> TÜİK yaşı 5'er yıllık gruplarla veriyor. "Senden yaşlı" oranı için senin grubundaki kişilerin yaşlara eşit dağıldığı varsayıldı, bu yüzden sonuç yaklaşıktır. Yaşın, bu yılki doğum gününü geçtiğin varsayılarak 2025 eksi doğum yılın olarak alındı. Ortanca yaş da aynı varsayımla gruplardan hesaplandı; TÜİK tek yaşlardan hesapladığı için resmî değerden birkaç ay farklı olabilir (2025: burada 34,9, TÜİK 34,4). Eski sayımlarda yaşı bilinmeyenler hesaba katılmadı.</p>
+    <p><a href="https://github.com/birtohum/kac-kisi-senden-yasli">Kaynak kodu</a> · <a href="https://birtohum.github.io/">birtohum</a></p>
+  </footer>
+</main>
+<script src="uygulama.js?v=1"></script>
+</body>
+</html>
