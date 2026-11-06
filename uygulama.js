@@ -94,11 +94,12 @@ async function baslat() {
   $("kaydir").oninput = (e) => { durdur(); yilGoster(Number(e.target.value)); };
   const p = Number(new URLSearchParams(location.search).get("yil"));
   if (p >= 1930 && p <= SON) { dogum = p; $("yil").value = p; }
+  else { dogum = 2000; $("yil").value = 2000; $("form").insertAdjacentHTML("afterend", '<p class="alt" id="ornekNot">Örnek olarak 2000 doğumlu gösteriliyor. Kendi yılını yaz.</p>'); }
   ozet(); ortancaGrafik(); yilGoster(YILLAR.length - 1);
   $("form").onsubmit = (e) => {
     e.preventDefault();
     const y = Number($("yil").value); if (!(y >= 1930 && y <= SON)) return;
-    dogum = y; history.replaceState(null, "", `?yil=${y}`);
+    dogum = y; history.replaceState(null, "", `?yil=${y}`); $("ornekNot")?.remove();
     ozet(); oynat(YILLAR.findIndex((x) => Number(x) >= y - 0) || 0);
   };
   $("oynat").onclick = () => (oynuyor ? durdur() : oynat(0));

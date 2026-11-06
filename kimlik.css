@@ -1,0 +1,12 @@
+:root{--zemin:#1b1130;--kart:#2a1c46;--yazi:#f6efff;--soluk:#b5a7cf;--cizgi:#3f2e63;--vurgu:#ffc53d;--erkek:#5ec8d8;--kadin:#f08fb8;--sen:#ffc53d}
+body{font-family:"DM Sans",sans-serif;background:radial-gradient(70% 50% at 50% 0,#3c2570 0,transparent 75%),var(--zemin)}
+h1{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:clamp(64px,13vw,150px);line-height:.88;letter-spacing:0;text-transform:uppercase}
+.ust-etiket{letter-spacing:.14em}
+.buyuk{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:clamp(110px,24vw,260px);line-height:.85;letter-spacing:0;color:var(--vurgu);text-shadow:0 0 60px rgba(255,197,61,.35)}
+.buyuk small{font-family:"DM Sans",sans-serif;color:var(--yazi);font-size:.14em}
+.form input{background:var(--kart);color:var(--yazi);border-color:var(--vurgu);font-size:24px;font-weight:700}
+.form button,.oynat{background:var(--vurgu);color:#1b1130}
+h2{font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:clamp(30px,5vw,46px);letter-spacing:.01em}
+.kontrol .yil{font-family:"Big Shoulders Display",sans-serif;font-size:52px}
+h1{text-wrap:balance}
+.dip{border-top:1px solid var(--cizgi)}
